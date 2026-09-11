@@ -197,6 +197,11 @@ h1 {
   font-size: 1rem;
 }
 
+.example {
+  margin-top: 10px;
+  padding: 0 2px;
+}
+
 .example-sentence {
   margin-top: 8px !important;
   color: #172033;
