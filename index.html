@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOEIC 品詞クイックチェック</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="quiz">
+      <section class="question-panel" aria-labelledby="question">
+        <p class="eyebrow">TOEIC Part 5 · 用法チェック</p>
+        <p id="progress" class="progress"></p>
+        <h1 id="question">after</h1>
+        <p class="instruction">使える用法をすべて選択</p>
+      </section>
+
+      <section class="answer-panel" aria-label="回答">
+        <div id="choices" class="choices"></div>
+        <p id="result" class="result" aria-live="polite"></p>
+        <button id="submit" type="button">解答する</button>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

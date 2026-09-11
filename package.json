@@ -1,0 +1,16 @@
+{
+  "name": "202111machinelarning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "node --check app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://localhost:26831/ikaranntyo/202111MachineLarning"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
