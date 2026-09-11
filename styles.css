@@ -20,16 +20,38 @@ body {
 }
 
 .question-panel,
-.answer-panel {
+.answer-panel,
+.course-panel,
+.summary-panel {
   padding: 24px;
   display: flex;
   flex-direction: column;
 }
 
-.question-panel {
+.question-panel,
+.course-panel,
+.summary-panel {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.course-buttons {
+  display: grid;
+  width: min(100%, 360px);
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.course-buttons button,
+#restart {
+  min-height: 56px;
+  border: 0;
+  border-radius: 14px;
+  background: #4169e1;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
 }
 
 .eyebrow,
@@ -121,6 +143,33 @@ h1 {
   color: #fff;
   font: inherit;
   font-weight: 700;
+}
+
+.summary-panel {
+  min-height: 100dvh;
+  gap: 18px;
+}
+
+.accuracy {
+  margin: 0;
+  color: #274bb9;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.missed-questions {
+  width: min(100%, 480px);
+  text-align: left;
+}
+
+.missed-questions h2 {
+  font-size: 1rem;
+}
+
+.missed-questions ul {
+  margin: 0;
+  padding-left: 1.5em;
+  line-height: 1.7;
 }
 
 #submit:disabled {

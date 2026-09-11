@@ -8,17 +8,35 @@
   </head>
   <body>
     <main class="quiz">
-      <section class="question-panel" aria-labelledby="question">
+      <section id="course-panel" class="course-panel" aria-labelledby="course-title">
+        <p class="eyebrow">TOEIC Part 5 · 用法チェック</p>
+        <h1 id="course-title">コースを選択</h1>
+        <p class="instruction">同じ問題はセッション中に重複しません</p>
+        <div class="course-buttons">
+          <button type="button" data-course-size="10">10問コース</button>
+          <button type="button" data-course-size="30">30問コース</button>
+          <button type="button" data-course-size="all">全問コース</button>
+        </div>
+      </section>
+
+      <section id="quiz-panel" class="question-panel" aria-labelledby="question" hidden>
         <p class="eyebrow">TOEIC Part 5 · 用法チェック</p>
         <p id="progress" class="progress"></p>
         <h1 id="question">after</h1>
         <p class="instruction">使える用法をすべて選択</p>
       </section>
 
-      <section class="answer-panel" aria-label="回答">
+      <section id="answer-panel" class="answer-panel" aria-label="回答" hidden>
         <div id="choices" class="choices"></div>
         <p id="result" class="result" aria-live="polite"></p>
         <button id="submit" type="button">解答する</button>
+      </section>
+      <section id="summary-panel" class="summary-panel" aria-labelledby="summary-title" hidden>
+        <p class="eyebrow">セッション完了</p>
+        <h1 id="summary-title">結果</h1>
+        <p id="accuracy" class="accuracy"></p>
+        <div id="missed-questions" class="missed-questions"></div>
+        <button id="restart" type="button">コースを選び直す</button>
       </section>
     </main>
     <script src="app.js"></script>
