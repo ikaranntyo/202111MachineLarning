@@ -282,34 +282,54 @@ function usageTranslations(question) {
 }
 
 function usageExample(term, category, translation) {
+  if (term === "after" && category === "前置詞") {
+    return {
+      beforeTerm: "We went home ",
+      afterTerm: " the meeting.",
+      translation: "私たちは会議の後、帰宅しました。",
+    };
+  }
+
+  if (term === "after" && category === "接続詞") {
+    return {
+      beforeTerm: "She called me ",
+      afterTerm: " she arrived.",
+      translation: "彼女は到着した後、私に電話しました。",
+    };
+  }
+
   return {
-    sentence: `In this usage, "${term}" is a ${category}.`,
-    translation: `この用法では、「${term}」は${category}として使われ、「${translation}」という意味です。`,
+    beforeTerm: "This is an example using ",
+    afterTerm: ".",
+    translation: `これは「${term}」を${category}として使い、「${translation}」という意味を表す例です。`,
   };
 }
 
-function createUsageCard(term, usage) {
+function createUsageCard(term, usage, showExample) {
   const card = document.createElement("section");
   card.className = "usage-card";
 
   const heading = document.createElement("h3");
   heading.textContent = `${usage.category}：${usage.translation}`;
-  const example = usageExample(term, usage.category, usage.translation);
-  const sentence = document.createElement("p");
-  sentence.className = "example-sentence";
-  sentence.textContent = example.sentence;
-  const japaneseTranslation = document.createElement("p");
-  japaneseTranslation.className = "japanese-translation";
-  japaneseTranslation.textContent = example.translation;
-
-  card.append(heading, sentence, japaneseTranslation);
+  card.append(heading);
+  if (showExample) {
+    const example = usageExample(term, usage.category, usage.translation);
+    const sentence = document.createElement("p");
+    sentence.className = "example-sentence";
+    sentence.append(example.beforeTerm, document.createElement("strong"), example.afterTerm);
+    sentence.querySelector("strong").textContent = term;
+    const japaneseTranslation = document.createElement("p");
+    japaneseTranslation.className = "japanese-translation";
+    japaneseTranslation.textContent = example.translation;
+    card.append(sentence, japaneseTranslation);
+  }
   return card;
 }
 
-function renderUsageDetails(container, question) {
+function renderUsageDetails(container, question, showExample = false) {
   container.append(
     ...usageTranslations(question).map((usage) =>
-      createUsageCard(question.term, usage),
+      createUsageCard(question.term, usage, showExample),
     ),
   );
 }
@@ -365,7 +385,7 @@ function showSummary() {
     const term = document.createElement("h3");
     term.textContent = question.term;
     details.append(term);
-    renderUsageDetails(details, question);
+    renderUsageDetails(details, question, true);
     missedQuestionsElement.append(details);
   }
 }
