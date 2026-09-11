@@ -275,9 +275,43 @@ function selectedAnswers() {
 }
 
 function usageTranslations(question) {
-  return question.answers
-    .map((answer) => `[${answer}]〜${translations[question.term][answer]}〜`)
-    .join("");
+  return question.answers.map((answer) => ({
+    category: answer,
+    translation: translations[question.term][answer],
+  }));
+}
+
+function usageExample(term, category, translation) {
+  return {
+    sentence: `In this usage, "${term}" is a ${category}.`,
+    translation: `この用法では、「${term}」は${category}として使われ、「${translation}」という意味です。`,
+  };
+}
+
+function createUsageCard(term, usage) {
+  const card = document.createElement("section");
+  card.className = "usage-card";
+
+  const heading = document.createElement("h3");
+  heading.textContent = `${usage.category}：${usage.translation}`;
+  const example = usageExample(term, usage.category, usage.translation);
+  const sentence = document.createElement("p");
+  sentence.className = "example-sentence";
+  sentence.textContent = example.sentence;
+  const japaneseTranslation = document.createElement("p");
+  japaneseTranslation.className = "japanese-translation";
+  japaneseTranslation.textContent = example.translation;
+
+  card.append(heading, sentence, japaneseTranslation);
+  return card;
+}
+
+function renderUsageDetails(container, question) {
+  container.append(
+    ...usageTranslations(question).map((usage) =>
+      createUsageCard(question.term, usage),
+    ),
+  );
 }
 
 function checkAnswer() {
@@ -298,7 +332,12 @@ function checkAnswer() {
     choice.disabled = true;
   }
 
-  resultElement.textContent = `${correct ? "正解！" : "正解："}${usageTranslations(currentQuestion)}`;
+  resultElement.replaceChildren();
+  const message = document.createElement("p");
+  message.className = "result-message";
+  message.textContent = correct ? "正解！" : "正解：";
+  resultElement.append(message);
+  renderUsageDetails(resultElement, currentQuestion);
   resultElement.className = `result ${correct ? "correct" : "incorrect"}`;
   if (correct) {
     correctAnswers += 1;
@@ -318,16 +357,16 @@ function showSummary() {
 
   missedQuestionsElement.replaceChildren();
   const title = document.createElement("h2");
-  title.textContent = missedQuestions.length ? "間違った問題" : "全問正解です！";
+  title.textContent = missedQuestions.length ? "結果一覧" : "全問正解です！";
   missedQuestionsElement.append(title);
-  if (missedQuestions.length) {
-    const list = document.createElement("ul");
-    for (const question of missedQuestions) {
-      const item = document.createElement("li");
-      item.textContent = `${question.term}：${question.answers.join("・")}`;
-      list.append(item);
-    }
-    missedQuestionsElement.append(list);
+  for (const question of sessionQuestions) {
+    const details = document.createElement("section");
+    details.className = "question-details";
+    const term = document.createElement("h3");
+    term.textContent = question.term;
+    details.append(term);
+    renderUsageDetails(details, question);
+    missedQuestionsElement.append(details);
   }
 }
 
