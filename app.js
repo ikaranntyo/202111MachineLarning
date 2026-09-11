@@ -1,4 +1,4 @@
-const categories = ["前置詞", "接続詞", "副詞", "熟語前置詞", "接続副詞"];
+const categories = ["前置詞", "接続詞", "副詞"];
 
 // TOEIC Part 5で頻出の、名詞句か節かを見分けるための基本表現だけを収録しています。
 const questions = [
@@ -8,18 +8,18 @@ const questions = [
   { term: "while", answers: ["接続詞"] },
   { term: "during", answers: ["前置詞"] },
   { term: "because", answers: ["接続詞"] },
-  { term: "because of", answers: ["熟語前置詞"] },
+  { term: "because of", answers: ["前置詞"] },
   { term: "although", answers: ["接続詞"] },
   { term: "despite", answers: ["前置詞"] },
-  { term: "in spite of", answers: ["熟語前置詞"] },
-  { term: "however", answers: ["副詞", "接続副詞"] },
-  { term: "therefore", answers: ["副詞", "接続副詞"] },
-  { term: "moreover", answers: ["副詞", "接続副詞"] },
-  { term: "otherwise", answers: ["副詞", "接続副詞"] },
-  { term: "consequently", answers: ["副詞", "接続副詞"] },
-  { term: "in addition to", answers: ["熟語前置詞"] },
-  { term: "according to", answers: ["熟語前置詞"] },
-  { term: "instead of", answers: ["熟語前置詞"] },
+  { term: "in spite of", answers: ["前置詞"] },
+  { term: "however", answers: ["副詞"] },
+  { term: "therefore", answers: ["副詞"] },
+  { term: "moreover", answers: ["副詞"] },
+  { term: "otherwise", answers: ["副詞"] },
+  { term: "consequently", answers: ["副詞"] },
+  { term: "in addition to", answers: ["前置詞"] },
+  { term: "according to", answers: ["前置詞"] },
+  { term: "instead of", answers: ["前置詞"] },
   { term: "unless", answers: ["接続詞"] },
   { term: "once", answers: ["接続詞", "副詞"] },
 ];
