@@ -95,6 +95,101 @@ const questions = [
   { term: "in case", answers: ["接続詞"] },
 ];
 
+const translations = {
+  after: { 前置詞: "〜の後に", 接続詞: "〜した後で" },
+  before: { 前置詞: "〜の前に", 接続詞: "〜する前に", 副詞: "以前に" },
+  since: { 前置詞: "〜以来", 接続詞: "〜して以来", 副詞: "それ以来" },
+  while: { 接続詞: "〜する間に" },
+  during: { 前置詞: "〜の間に" },
+  because: { 接続詞: "なぜなら〜だから" },
+  "because of": { 前置詞: "〜のために" },
+  although: { 接続詞: "〜だけれども" },
+  despite: { 前置詞: "〜にもかかわらず" },
+  "in spite of": { 前置詞: "〜にもかかわらず" },
+  however: { 副詞: "しかしながら" },
+  therefore: { 副詞: "したがって" },
+  moreover: { 副詞: "さらに" },
+  otherwise: { 副詞: "さもなければ" },
+  consequently: { 副詞: "結果として" },
+  "in addition to": { 前置詞: "〜に加えて" },
+  "according to": { 前置詞: "〜によれば" },
+  "instead of": { 前置詞: "〜の代わりに" },
+  unless: { 接続詞: "〜しない限り" },
+  once: { 接続詞: "いったん〜すると", 副詞: "かつて" },
+  as: { 前置詞: "〜として", 接続詞: "〜なので", 副詞: "同じくらい" },
+  until: { 前置詞: "〜まで", 接続詞: "〜するまで" },
+  by: { 前置詞: "〜までに", 副詞: "そばに" },
+  for: { 前置詞: "〜のために", 接続詞: "というのも〜だから" },
+  like: { 前置詞: "〜のような", 接続詞: "〜するように" },
+  than: { 前置詞: "〜よりも", 接続詞: "〜よりも" },
+  "than before": { 副詞: "以前よりも" },
+  through: { 前置詞: "〜を通して", 副詞: "通り抜けて" },
+  around: { 前置詞: "〜の周りに", 副詞: "あちこちに" },
+  across: { 前置詞: "〜を横切って", 副詞: "向こう側へ" },
+  along: { 前置詞: "〜に沿って", 副詞: "前へ" },
+  away: { 副詞: "離れて" },
+  ahead: { 副詞: "前方に" },
+  above: { 前置詞: "〜より上に", 副詞: "上に" },
+  below: { 前置詞: "〜より下に", 副詞: "下に" },
+  beyond: { 前置詞: "〜を越えて", 副詞: "その向こうに" },
+  within: { 前置詞: "〜以内に", 副詞: "中に" },
+  inside: { 前置詞: "〜の中に", 副詞: "中へ" },
+  outside: { 前置詞: "〜の外に", 副詞: "外へ" },
+  under: { 前置詞: "〜の下に", 副詞: "下に" },
+  over: { 前置詞: "〜の上に", 副詞: "上に" },
+  up: { 前置詞: "〜を上って", 副詞: "上へ" },
+  down: { 前置詞: "〜を下って", 副詞: "下へ" },
+  off: { 前置詞: "〜から離れて", 副詞: "離れて" },
+  out: { 前置詞: "〜の外へ", 副詞: "外へ" },
+  on: { 前置詞: "〜の上に", 副詞: "続いて" },
+  near: { 前置詞: "〜の近くに", 副詞: "近くに" },
+  opposite: { 前置詞: "〜の向かいに", 副詞: "向かいに" },
+  past: { 前置詞: "〜を過ぎて", 副詞: "過ぎ去って" },
+  apart: { 副詞: "離れて" },
+  together: { 副詞: "一緒に" },
+  rather: { 副詞: "むしろ" },
+  almost: { 副詞: "ほとんど" },
+  already: { 副詞: "すでに" },
+  always: { 副詞: "いつも" },
+  especially: { 副詞: "特に" },
+  even: { 副詞: "〜でさえ" },
+  ever: { 副詞: "これまでに" },
+  frequently: { 副詞: "頻繁に" },
+  generally: { 副詞: "一般的に" },
+  hardly: { 副詞: "ほとんど〜ない" },
+  indeed: { 副詞: "実に" },
+  later: { 副詞: "後で" },
+  meanwhile: { 副詞: "その間に" },
+  nevertheless: { 副詞: "それにもかかわらず" },
+  previously: { 副詞: "以前に" },
+  recently: { 副詞: "最近" },
+  still: { 副詞: "まだ" },
+  then: { 副詞: "そのとき" },
+  thus: { 副詞: "このように" },
+  whereas: { 接続詞: "〜である一方で" },
+  whether: { 接続詞: "〜かどうか" },
+  wherever: { 接続詞: "どこで〜しても" },
+  "provided that": { 接続詞: "〜という条件で" },
+  "so that": { 接続詞: "〜するように" },
+  "even though": { 接続詞: "〜にもかかわらず" },
+  "as soon as": { 接続詞: "〜するとすぐに" },
+  "as long as": { 接続詞: "〜する限り" },
+  "in order that": { 接続詞: "〜するために" },
+  "owing to": { 前置詞: "〜のために" },
+  "due to": { 前置詞: "〜のために" },
+  "prior to": { 前置詞: "〜の前に" },
+  "regardless of": { 前置詞: "〜に関係なく" },
+  "apart from": { 前置詞: "〜は別として" },
+  "except for": { 前置詞: "〜を除いて" },
+  "with regard to": { 前置詞: "〜に関して" },
+  "in accordance with": { 前置詞: "〜に従って" },
+  "on behalf of": { 前置詞: "〜を代表して" },
+  "in response to": { 前置詞: "〜に応じて" },
+  "by means of": { 前置詞: "〜によって" },
+  "in case of": { 前置詞: "〜の場合に" },
+  "in case": { 接続詞: "〜の場合に備えて" },
+};
+
 const coursePanel = document.querySelector("#course-panel");
 const quizPanel = document.querySelector("#quiz-panel");
 const answerPanel = document.querySelector("#answer-panel");
@@ -179,6 +274,12 @@ function selectedAnswers() {
   );
 }
 
+function usageTranslations(question) {
+  return question.answers
+    .map((answer) => `[${answer}]〜${translations[question.term][answer]}〜`)
+    .join("");
+}
+
 function checkAnswer() {
   const selected = selectedAnswers();
 
@@ -197,9 +298,7 @@ function checkAnswer() {
     choice.disabled = true;
   }
 
-  resultElement.textContent = correct
-    ? "正解！"
-    : `正解：${currentQuestion.answers.join("・")}`;
+  resultElement.textContent = `${correct ? "正解！" : "正解："}${usageTranslations(currentQuestion)}`;
   resultElement.className = `result ${correct ? "correct" : "incorrect"}`;
   if (correct) {
     correctAnswers += 1;
