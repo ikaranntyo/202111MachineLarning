@@ -119,10 +119,14 @@ h1 {
 }
 
 .result {
-  min-height: 1.5em;
+  width: min(100%, 480px);
   margin: 0;
   color: #3d526e;
   font-size: 0.9rem;
+}
+
+.result-message {
+  margin: 0 0 10px;
   text-align: center;
 }
 
@@ -166,10 +170,48 @@ h1 {
   font-size: 1rem;
 }
 
-.missed-questions ul {
+.question-details {
+  margin-top: 24px;
+}
+
+.question-details > h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.usage-card {
+  margin-top: 10px;
+  padding: 14px;
+  border: 1px solid #d8deeb;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.usage-card h3,
+.usage-card p {
   margin: 0;
-  padding-left: 1.5em;
-  line-height: 1.7;
+}
+
+.usage-card h3 {
+  color: #274bb9;
+  font-size: 1rem;
+}
+
+.example {
+  margin-top: 10px;
+  padding: 0 2px;
+}
+
+.example-sentence {
+  margin-top: 8px !important;
+  color: #172033;
+  line-height: 1.5;
+}
+
+.japanese-translation {
+  margin-top: 6px !important;
+  color: #3d526e;
+  line-height: 1.5;
 }
 
 #submit:disabled {
